@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>GrafKom Teori (Tugas 2)</title>
+</head>
+
+<body>
+    <h1>Tugas 2 Grafika Komputer</h1>
+    <h4>Jam sesuai dengan yang di komputer</h4>
+    <canvas id="mycanvas" width="400" height="400"></canvas>
+    <script type="module">
+        import * as lib from "./index.js"
+        var canvas1;
+        
+        canvas1 = document.querySelector("#mycanvas");
+
+        var ctx;
+        ctx = canvas1.getContext("2d");
+        var imageData = ctx.getImageData(0,0,canvas1.width, canvas1.height);
+
+        lib.lingkaran1(canvas1.width,imageData, 200,200,178, 0,0,0)
+        lib.lingkaran1(canvas1.width,imageData, 200,200,118, 0,0,0)
+
+        let x = 0.53
+
+        lib.lingkaranJam(canvas1.width,imageData, 200,200,178, x)
+        lib.lingkaran2(canvas1.width,imageData, 200,200,118, x)
+
+        ctx.putImageData(imageData, 0,0);
+    </script>
+</body>
+
+</html>
